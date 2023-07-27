@@ -12,9 +12,17 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-    for i in range(n):
-        print("[", end="")
-        for j in range(i+1):
-            print(factorial(i)//(factorial(j)*factorial(i-j)),
-                  end="," if j < i else "")
-        print(']')
+
+    t = []
+    for row in range(n):
+        if row == 0:
+            t.append([1])
+        else:
+            prev_row = t[row - 1]
+            new_row = [1]
+            for i in range(1, len(prev_row)):
+                new_row.append(prev_row[i - 1] + prev_row[i])
+            new_row.append(1)
+            t.append(new_row)
+
+    return t

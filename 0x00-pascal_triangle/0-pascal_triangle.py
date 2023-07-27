@@ -3,8 +3,6 @@
 A function that returns pascals triangle
 """
 
-from math import factorial
-
 
 def pascal_triangle(n):
     """

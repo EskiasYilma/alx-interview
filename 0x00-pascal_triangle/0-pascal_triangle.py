@@ -6,7 +6,7 @@ A function that returns pascals triangle
 from math import factorial
 
 
-def pascals_triangle(n):
+def pascal_triangle(n):
     """
     A function that returns pascals triangle
     """

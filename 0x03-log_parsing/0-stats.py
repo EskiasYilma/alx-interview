@@ -24,12 +24,13 @@ try:
     for line in fileinput.input():
         if counter != 0 and counter % 10 == 0:
             print_status(status_dict, file_size)
-        parsed = line.split(" ")[-2]
+
         try:
             file_size += int(line.split(" ")[-1])
         except Exception:
             pass
         try:
+            parsed = line.split(" ")[-2]
             if parsed in status_dict:
                 status_dict[parsed] += 1
         except Exception:

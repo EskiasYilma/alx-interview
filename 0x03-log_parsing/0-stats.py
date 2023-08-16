@@ -30,10 +30,12 @@ try:
         except Exception:
             pass
         try:
-            status_dict[parsed] += 1
+            if parsed in status_dict:
+                status_dict[parsed] += 1
         except Exception:
             pass
         counter += 1
+    print_status(status_dict, file_size)
 except KeyboardInterrupt:
     print_status(status_dict, file_size)
     raise

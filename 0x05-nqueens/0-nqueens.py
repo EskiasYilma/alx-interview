@@ -18,7 +18,7 @@ def solve_nqueens(N):
         print("N must be at least 4")
         sys.exit(1)
 
-    def is_safe(board, row, col):
+    def check_safe_move(board, row, col):
         """
         Check if a queen can be placed at the given position
         without conflicting with existing queens
@@ -43,7 +43,7 @@ def solve_nqueens(N):
     #         print("".join(["Q" if i == row else "." for i in range(N)]))
     #     print()
 
-    def solve_nqueens_util(col, board):
+    def solve_nqueens_helper(col, board):
         """
         solve nqueen helper function
         """
@@ -52,13 +52,13 @@ def solve_nqueens(N):
             return
 
         for row in range(N):
-            if is_safe(board, row, col):
+            if check_safe_move(board, row, col):
                 board[col] = row
-                solve_nqueens_util(col + 1, board)
+                solve_nqueens_helper(col + 1, board)
                 board[col] = -1
 
     board = [-1] * N
-    solve_nqueens_util(0, board)
+    solve_nqueens_helper(0, board)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
